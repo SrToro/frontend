@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark sticky-top">
+    <div class="container-fluid ">
+      <a (click)="navigate('haircut')"><img class="navbar-brand img-fluid" style="cursor: pointer" width="80" height="110"  src="assets/img/Logo.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end text-decoration-none " id="navbarSupportedContent">
+        <ul class="navbar-nav ml-2 mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="float-end ms-2 mt-2 text-decoration-none" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 20px; color: #a2f7f7; cursor: pointer;" (click)="navigate('haircut')"> Inicio </a>
+            <a class="bi bi-house float-end ms-2 " data-toggle="tooltip " data-placement="left" title="ir a inicio" style="font-size: 2rem; color: #a2f7f7; cursor: pointer;"(click)="navigate('haircut')"></a>
+          </li>
+          <li class="nav-item">
+            <a class="float-end ms-2 mt-2 text-decoration-none" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 20px; color: #a2f7f7; cursor: pointer;" (click)="navigate('products')"> Tienda </a>
+            <i class="bi bi-shop float-end ms-2" data-toggle="tooltip" data-placement="left" title="ir a tienda" style="font-size: 2rem; color: #a2f7f7; cursor: pointer;"  (click)="navigate('products')"></i>
+          </li>
+          <li class="nav-item">
+            <a class="float-end ms-2 mt-2 text-decoration-none" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 20px; color: #a2f7f7; cursor: pointer;" (click)="navigate('profile')"> Perfil </a>
+            <a class="bi bi-person float-end ms-2" data-toggle="tooltip" data-placement="left" title="ir a perfil" style="font-size: 2rem; color: #a2f7f7; cursor: pointer;"(click)="navigate('profile')"></a>
+          </li>
+          <li class="nav-item">
+            <a class="float-end ms-2 mt-2 text-decoration-none" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 20px; color: #a2f7f7; cursor: pointer;" (click)="navigate('aboutus')"> Nosotros </a>
+              <a class="bi bi-info-circle float-end ms-2" data-toggle="tooltip" data-placement="left" title="Acerca de nosotros" style="font-size: 2rem; color: #a2f7f7; cursor: pointer;" (click)="navigate('aboutus')"></a>
+          </li>
+          <li class="nav-item"  >
+            <a class="float-end ms-2 mt-2 text-decoration-none" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 20px; color: #a2f7f7; cursor: pointer;" (click)="navigate('car')"> carrito </a>
+            <a class="bi bi-cart4 float-end ms-2" data-toggle="tooltip" data-placement="left" title="Ir a la tienda" style="font-size: 2rem; color: #a2f7f7; cursor: pointer;" (click)="navigate('car')"></a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

@@ -1,0 +1,57 @@
+.content {
+    width: 100%;
+    padding: 50px 10% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blue;
+}
+
+.itemContainer{
+    background-color: #1E9B9B;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.nameContainer{
+    background-color: #1E9B9B;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 0 50px;
+}
+
+.itemContainer img{
+    height: 85%;
+    width: 19%;
+}
+.subcontainer img{
+    height: 60%;
+    width: 10%;
+}
+input {
+    width: 100%;
+}
+
+.quantityContainer{
+    width: 100px;
+}
+
+.delete {
+    width: 85px;
+}
+
+.textContainer{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,102 @@
+<div [ngClass]= "{'payDone':payDone}" class="modal fade hidden" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="staticBackdropLabel">Pago Realizado satisfactoriamente!</h5>
+      </div>
+      <div class="modal-body text-dark">
+        Ya estás list@ para reclamar tus productos! .
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" data-bs-dismiss="modal" (click)="navigate('haircut')">Perfecto!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="car.length > 0" class="content bg-dark">
+  <div *ngFor="let item of car ; let i= index" class="itemContainer text-dark border border-light">
+    <img class="itemImage d-block" src="{{item.img}}"  alt= "" >
+    <div class="subcontainer">
+      <h4 class="text-center "><em><strong>{{item.name}}</strong></em></h4>
+      <h6 class="text-center "><em>{{item.description}}</em></h6>
+      <h5 class="text-center">Coste: ${{item.price}}</h5>
+    </div>
+    <div class="quantityContainer">
+      <h6 class="text-center">Cantidad:</h6> 
+      <input type="number" min= "1" max="{{item.stock}}" value="{{item.quantity}}" (change)="updateQuantity($event, item)">
+    </div>
+    <button type="button" class="delete btn btn-danger border" style="background: linear-gradient(180deg, #fa7a7a 0%, #e40303 100%); "(click)="deleteItem(i)" >Eliminar</button>    
+  </div>
+  
+  <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-success gap-2 col-6 mx-auto d-block border mt-5 mb-5" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" (click)="pay()"  >Pagar</button>    
+</div>
+
+
+
+<div>
+<div *ngIf="car.length === 0" class="content bg-dark text-center ">
+  <div class="text-center bg-dark">
+    <img class="img-fluid " src="assets/img/carrito_vacio.png">
+  </div>
+  <br/>
+  <h1>Whoops!</h1>
+ <br/>
+ <h2>Parece que no tienes ningun producto en el carrito, intenta añadiendo unos cuantos!</h2>
+ <button class="btn  btn-success ms-4 mb-2 border border-white btn-sm" type="button" style="background: linear-gradient(180deg, #37d189 0%, #198754 100%);" (click)="navigate('products')"><h4>¡Llevame a la tienda!</h4></button>
+</div>
+
+
+<footer class="bg-dark bg-gradient text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-wheiht-bold text-white" >
+          La Calma
+        </h4>
+        <p>
+          <em>
+            La Calma es una empresa de más de 5 años en el mercado, desea crear una experiencia única a sus clientes a la hora de hacerse un corte de cabello o adquirir productos de uso personal de excelente calidad,  brindamos  control, experiencia y comodidad a nuestros preciados clientes en cada visita a nuestras instalaciones.
+          </em>          
+        </p>
+      </div>
+
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Servicios</h4>
+        <p>
+          <a (click)="navigate('haircut')" class="text-white bi bi-house" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Inicio</a>
+        </p>
+        <p>
+          <a (click)="navigate('products')"class="text-white bi bi-shop" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Tienda</a>
+        </p>
+        <p>
+          <a (click)="navigate('profile')" class="text-white bi bi-person" style="text-decoration: none; cursor: pointer;font-size: 120%;"> Perfil</a>
+        </p>
+        <p>
+          <a (click)="navigate('aboutus')" class="text-white bi bi-info-circle" style="text-decoration: none; cursor: pointer;font-size: 120%;" > Nosotros</a>
+        </p>
+        <p>
+          <a *ngIf="user!=undefined" class="bi bi-power text-white" style="text-decoration: none;font-size: 120%;"(click)="logout()" href="haircut" > Cerrar sesión</a>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Contactos</h4>
+        <p>
+          <a href="https://goo.gl/maps/NUMxpgNLWqhAaX3J8" class="text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-house"></i> Calle 33 # 19a-01 Palmira, Valle</a>
+        </p>
+        <p>
+          <a href="https://wa.me/573188621565?text=Hola%20quisiera%20agendar%20una%20cita!" class= "text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-telephone-forward"></i> 318 8621565</a>
+        </p>
+        <p>
+         <a class="text-white" style="font-size: 120%; text-decoration: none;"><i class="bi bi-facebook"> </i> Proximamente!</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/la_calma_barbershop/" class= "text-white" style="text-decoration: none; font-size: 120%;"><i class="bi bi-instagram"></i> la_calma_barbershop</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</footer>

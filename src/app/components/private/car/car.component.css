@@ -1,0 +1,47 @@
+.content {
+    width: 100%;
+    padding: 50px 10% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blue;
+}
+
+.itemContainer{
+    background-color: #1E9B9B;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+
+.itemImage {
+    width: 150px;
+    height: 150px;
+}
+
+input {
+    width: 100%;
+}
+
+.quantityContainer{
+    width: 100px;
+}
+
+.delete {
+    width: 85px;
+}
+
+.hidden{
+    display: none;
+}
+
+.payDone{
+    display: block;
+}

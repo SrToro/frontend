@@ -1,0 +1,102 @@
+<div class="text-center bg-dark">
+<img class="img-fluid " src="assets/img/homePictureLogo.png">
+</div>
+
+<div class="bg-dark px-5 mt-4 text-center">
+  <i class="bi bi-scissors h1 bg-dark text-white"> Elige tu corte </i><i class="bi bi-scissors h1 bg-dark text-white"></i>
+</div>
+<div *ngIf="haircuts" class="content bg-dark">
+    <div *ngFor="let haircut of haircuts" class="haircutContainer text-dark border border-light">
+        <img class="img-fluid mx-auto d-block"  width="150" src="{{haircut.imag}}"  alt= "" >
+        <h4 class="text-center "><em><strong>{{haircut.name}}</strong></em></h4>
+        <h6 class="text-center">Coste: ${{haircut.price}}</h6>
+        <h6 class="text-center">Duración: {{haircut.time}} hora</h6>
+        <button type="button" class=" border-light btn btn-success gap-2 col-6 mx-auto d-block border btn-sm" style="background: linear-gradient(180deg, #37d189 0%, #198754 100%); border-radius: 20px;" (click)="setHaircut(haircut._id)"><h6><strong> Separar!</strong></h6></button>    
+    </div>
+</div>
+<div class="bg-dark px-5 mt-1 text-center mb-5">
+  <i class="bi bi-shop h1 bg-dark text-white"> Ingresa a nuestra tienda virtual!<button class="btn  btn-success ms-4 mb-2 border border-white btn-sm" type="button" style="background: linear-gradient(180deg, #37d189 0%, #198754 100%); border-radius: 20px;" (click)="navigate('products')"><h4> acceder </h4></button></i>
+</div>
+
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img src="assets/img/fotosSlide/niñoSonriendo.jpeg" class="d-block  mx-auto "  alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/img/fotosSlide/fachada.jpeg" class="d-block  mx-auto" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/img/fotosSlide/ismaelRivera.jpeg" class="d-block mx-auto" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+<footer class="bg-dark bg-gradient text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-wheiht-bold text-white" >
+          La Calma
+        </h4>
+        <p>
+          <em>
+            La Calma es una empresa de más de 5 años en el mercado, desea crear una experiencia única a sus clientes a la hora de hacerse un corte de cabello o adquirir productos de uso personal de excelente calidad,  brindamos  control, experiencia y comodidad a nuestros preciados clientes en cada visita a nuestras instalaciones.
+          </em>          
+        </p>
+      </div>
+
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Servicios</h4>
+        <p>
+          <a (click)="navigate('haircut')" class="text-white bi bi-house" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Inicio</a>
+        </p>
+        <p>
+          <a (click)="navigate('products')"class="text-white bi bi-shop" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Tienda</a>
+        </p>
+        <p>
+          <a (click)="navigate('profile')" class="text-white bi bi-person" style="text-decoration: none; cursor: pointer;font-size: 120%;"> Perfil</a>
+        </p>
+        <p>
+          <a (click)="navigate('aboutus')" class="text-white bi bi-info-circle" style="text-decoration: none; cursor: pointer;font-size: 120%;" > Nosotros</a>
+        </p>
+        <p>
+          <a *ngIf="user!=undefined" class="bi bi-power text-white" style="text-decoration: none;font-size: 120%;"(click)="logout()" href="haircut" > Cerrar sesión</a>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Contactos</h4>
+        <p>
+          <a href="https://goo.gl/maps/NUMxpgNLWqhAaX3J8" class="text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-house"></i> Calle 33 # 19a-01 Palmira, Valle</a>
+        </p>
+        <p>
+          <a href="https://wa.me/573188621565?text=Hola%20quisiera%20agendar%20una%20cita!" class= "text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-telephone-forward"></i> 318 8621565</a>
+        </p>
+        <p>
+         <a class="text-white" style="font-size: 120%; text-decoration: none;"><i class="bi bi-facebook"> </i> Proximamente!</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/la_calma_barbershop/" class= "text-white" style="text-decoration: none; font-size: 120%;"><i class="bi bi-instagram"></i> la_calma_barbershop</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</footer>

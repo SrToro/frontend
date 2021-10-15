@@ -1,0 +1,54 @@
+.card {
+    displaY: block;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    color: white;
+    font-family: 'Calibri';
+  }
+  
+  .icon {
+    width: 50px;
+    height: 25px;
+    /*half of width*/
+    margin: auto;
+    display: block;
+    border-radius: 50px 50px 0 0;
+  }
+  
+  .fa {
+    margin-top: 10px;
+  }
+  
+  .text {
+    padding: 25px;
+  }
+  
+  .strategy .text,
+  .strategy .icon {
+    background-color: #5c471c;
+  }
+  
+  .crop .text,
+  .crop .icon {
+    background-color: #a0a175;
+  }
+  
+  .risk .text,
+  .risk .icon {
+    background-color: #666666;
+  }
+  
+ 
+
+  .imagenLogo{
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .imagenLogo img{
+    height: 50%;
+    width: 70%;
+  }

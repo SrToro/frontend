@@ -1,0 +1,17 @@
+<div class="bg-dark px-5">
+    <br/>
+    <br/>
+    <div class="bg-dark px-5 mt-4 text-center">
+        <i class="bi bi-scissors h1 bg-dark text-white ms-5  "> Selecciona tu Barbero</i>
+    </div>
+</div>
+
+<div *ngIf="barbers" class="content bg-dark">
+    <div *ngFor="let barber of barbers" class="barberContainer text-dark border border-light">
+        <img class="img-fluid mx-auto d-block"  width="150" src="{{barber.imag}}"  alt= "" >
+        <h5 class="text-center "><strong>{{barber.name}}</strong></h5>
+        <h6 class="text-center"><em> Telefono: {{barber.tel}}</em></h6>
+        <h6 class="text-center"><em> Correo: {{barber.correo}}</em></h6>
+        <button type="button" class="btn btn-success gap-2 col-6 mx-auto d-block border border-white" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" (click)="setBarber(barber._id)">Seleccionar!</button>    
+    </div>
+</div>

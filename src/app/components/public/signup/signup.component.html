@@ -1,0 +1,63 @@
+<div [ngClass]= "{'userCreated':userCreated}" class="modal fade hidden" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="staticBackdropLabel">¡Te has registrado con exito!</h5>
+      </div>
+      <div class="modal-body text-dark">
+        ¡Bienvenid@ a La Calma Barber Shop!.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" data-bs-dismiss="modal" (click)="navigate('haircut')">Perfecto!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container bg-dark text-white">
+  <div class="me-5">
+    <div class="text-center bg-dark">
+      <img class="img-fluid mt-5" src="assets/img/Logo.png"  >
+    </div>
+  </div >
+
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <div class="form-group">
+        <label for="exampleInputName1"><h5>Nombre completo <span class="span" data-toggle="tooltip" data-placement="left" title="obligatorio">*</span> </h5></label>
+        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="Ingrese su nombre"  formControlName="name" >
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPhone1"><h5>Telefono <span class="span" data-toggle="tooltip" data-placement="left" title="obligatorio">*</span> </h5></label>
+        <input type="number" class="form-control" id="exampleInputPhone1" placeholder="Ingrese su telefono" formControlName="phone">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1"><h5>Email <span class="span" data-toggle="tooltip" data-placement="left" title="obligatorio">*</span> </h5> </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email" formControlName="email">
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleInputPassword1"><h5>Contraseña <span class="span" data-toggle="tooltip" data-placement="left" title="obligatorio">*</span> </h5></label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su contraseña" formControlName="password">
+        <small id="emailHelp" class="form-text text-muted text-outline-success"><h6><em> Nunca compartiriamos tu información con otras personas.</em></h6></small>
+      </div>
+
+    </div>
+
+    <p class="text-danger" *ngIf="wrong" >¡Verifica el email!</p>
+    
+    
+    <p class="text-danger" *ngIf="form.value.name == '' || form.value.phone == ''|| form.value.email == ''|| form.value.password == ''">¡Completa todos los espaciós obligatorios!</p>
+
+    <br/>
+    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;"  (click)="signup()">Registrarme</button>
+
+  </form>
+
+  
+
+
+</div>
+  

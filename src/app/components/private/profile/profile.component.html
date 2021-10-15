@@ -1,0 +1,121 @@
+<div *ngIf="user" class="content bg-dark">
+  <div class="nameContainer text-dark border border-light"> 
+    <h1 class="text-center"><em><strong>Hola {{user.name}}</strong></em></h1>
+    <br/>
+    <h3><em><strong>Tu información</strong></em></h3>
+    <br/>
+    <h4><em><strong>Teléfono:  {{user.phoneNumber}}</strong></em></h4>
+    <h4><em><strong>E-mail:  {{user.email}}</strong></em></h4>
+  </div>
+  <br/>
+  <br/>
+  
+  <p>
+    <button class="btn text-light" style="border-color: #1E9B9B; cursor: pointer;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+      <h3><strong> Tu historial de citas: <i class="bi bi-caret-down h2"></i></strong></h3>
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample1">
+    <div *ngIf="user.appointments.length <= 0" >
+      <h4><strong> No has separado ninguna cita aún! <span class="text-muted"> ¿¡Qué esperas!? </span> <a (click)="navigate('haircut')" class="text-white bi bi-house" style="text-decoration: none; cursor: pointer; font-size: 120%;"></a></strong></h4>
+    </div>
+    <div *ngFor="let appointment of user.appointments" class="itemContainer text-dark border border-light">
+
+      <img class="img-fluid mx-auto" style="height: 60%; width: 10%;" src="{{appointment.hairCutSelected.imag}}"  alt= "" >
+          <!-- corte -->
+        <div class="subcontainer mx-auto"> <!-- subcontainer textContainer col-md-3 col-lg-3 col-xl-3 mx-auto-->
+          <h3 class="text-center "><strong> {{appointment.hairCutSelected.name}}</strong></h3>
+        </div>
+          <!-- fecha -->
+      <div class="subcontainer mx-auto">
+          <h4 class="textContainer text-center mx-auto"><em><strong>No. de cita:</strong></em></h4>
+          <h4 class="textContainer text-center mx-auto "><em><strong>{{appointment._id}}</strong></em></h4>
+          <h4 class="textContainer text-center mx-auto"><em><strong>Día: {{appointment.date | date: 'dd/MM/yyyy' :'GMT'}}</strong></em></h4>
+          <h5 class="textContainer text-center mx-auto">Hora: {{appointment.hour}} H</h5>
+      </div>
+          <!-- barbero -->
+      <img class="itemImage d-block mx-auto img-fluid" style="height: 70%; width:18%;" src="{{appointment.barberSelected.imag}}"  alt= "" >
+        <div class="subcontainer mx-auto ">
+          <h4 class="text-center"><strong>{{appointment.barberSelected.name}}</strong></h4>
+          <h5 class="text-center">{{appointment.barberSelected.tel}}</h5>
+        </div>
+    </div>
+  </div>
+
+
+  <p>
+    <button class="btn text-light " style=" border-color: #1E9B9B; cursor: pointer;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+      <h3><strong> Tu historial de compras: <i class="bi bi-caret-down h2"></i></strong></h3>
+    </button>
+  </p>
+
+  <div class="collapse" id="collapseExample2">
+    <div *ngIf="user.purchaseOrder.length <= 0" >
+      <h4><strong> No hay historial de compras... <span class="text-muted"> ¡Animate, revisa la tienda y hazte con algo! </span>  <a (click)="navigate('products')"class="text-white bi bi-shop" style="text-decoration: none; cursor: pointer; font-size: 120%;"></a> </strong></h4>
+    </div>
+    <div *ngFor="let item of user.purchaseOrder" class="itemContainer text-dark border border-light">
+      <img class="img-fluid "  src="{{item.products.img}}"  alt= "" >
+      <div class="subcontainer">
+        <h4 class="text-center "><em><strong>No. recibo: {{item._id}}</strong></em></h4>
+        <h4 class="text-center "><em><strong>{{item.products.name}}</strong></em></h4>
+        <h6 class="text-center">Coste: ${{item.products.price}}</h6>
+      </div>
+      <h6 class="text-center">Cantidad: {{item.quantity}}</h6>
+      <h5 class="text-center h">Total pagado: <br/> ${{item.quantity * item.products.price}}</h5>
+    </div>
+  </div>
+
+</div>    
+  
+<footer class="bg-dark bg-gradient text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-wheiht-bold text-white" >
+          La Calma
+        </h4>
+        <p>
+          <em>
+            La Calma es una empresa de más de 5 años en el mercado, desea crear una experiencia única a sus clientes a la hora de hacerse un corte de cabello o adquirir productos de uso personal de excelente calidad,  brindamos  control, experiencia y comodidad a nuestros preciados clientes en cada visita a nuestras instalaciones.
+          </em>          
+        </p>
+      </div>
+
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Servicios</h4>
+        <p>
+          <a (click)="navigate('haircut')" class="text-white bi bi-house" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Inicio</a>
+        </p>
+        <p>
+          <a (click)="navigate('products')"class="text-white bi bi-shop" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Tienda</a>
+        </p>
+        <p>
+          <a (click)="navigate('profile')" class="text-white bi bi-person" style="text-decoration: none; cursor: pointer;font-size: 120%;"> Perfil</a>
+        </p>
+        <p>
+          <a (click)="navigate('aboutus')" class="text-white bi bi-info-circle" style="text-decoration: none; cursor: pointer;font-size: 120%;" > Nosotros</a>
+        </p>
+        <p>
+          <a *ngIf="user!=undefined" class="bi bi-power text-white" style="text-decoration: none;font-size: 120%;"(click)="logout()" href="haircut" > Cerrar sesión</a>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Contactos</h4>
+        <p>
+          <a href="https://goo.gl/maps/NUMxpgNLWqhAaX3J8" class="text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-house"></i> Calle 33 # 19a-01 Palmira, Valle</a>
+        </p>
+        <p>
+          <a href="https://wa.me/573188621565?text=Hola%20quisiera%20agendar%20una%20cita!" class= "text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-telephone-forward"></i> 318 8621565</a>
+        </p>
+        <p>
+         <a class="text-white" style="font-size: 120%; text-decoration: none;"><i class="bi bi-facebook"> </i> Proximamente!</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/la_calma_barbershop/" class= "text-white" style="text-decoration: none; font-size: 120%;"><i class="bi bi-instagram"></i> la_calma_barbershop</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</footer>

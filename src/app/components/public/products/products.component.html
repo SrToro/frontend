@@ -1,0 +1,80 @@
+<div class="bg-dark px-5 mt-4 text-center">
+  <div class="bg-dark px-5">
+      <i class="bi bi-cart4 h1 bg-dark text-white ms-5"> Tienda</i>
+  </div>
+</div>
+
+<div class="content bg-dark">
+
+  <div *ngIf="products" class="content bg-dark">
+    
+    <div *ngFor="let product of products" class="haircutContainer text-dark">
+      <div *ngIf="product.stock > 0" class="productcontainer text-dark border">
+        <img class="img-fluid mx-auto d-block" width="150"  src="{{product.img}}" alt="">
+        <h5 class="text-center "><strong>{{product.name}}</strong></h5>
+        <h6 class="text-center">Coste: ${{product.price}}</h6>
+        <h6 class="text-center">stock: {{product.stock}}</h6>
+        <button type="button" class="btn btn-success gap-2 col-6 mx-auto d-block border" style="background: linear-gradient(180deg, #37d189 0%, #198754 100%); border-radius: 20px;"(click)="setProduct(product)">Añadir al carrito!</button>    
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+<div class="bg-dark px-5 mt-1 text-center mb-5">
+  <i class="bg-dark text-white h1"> Ver tu carrito <button type="button" class="btn  btn-success ms-4 mb-2 border border-white btn-sm" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px; width: 10%;" (click)="goToCar()"><i class="bi bi-cart4 h2" ></i></button></i>    
+</div>
+<br/>
+
+<footer class="bg-dark bg-gradient text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-wheiht-bold text-white" >
+          La Calma
+        </h4>
+        <p>
+          <em>
+            La Calma es una empresa de más de 5 años en el mercado, desea crear una experiencia única a sus clientes a la hora de hacerse un corte de cabello o adquirir productos de uso personal de excelente calidad,  brindamos  control, experiencia y comodidad a nuestros preciados clientes en cada visita a nuestras instalaciones.
+          </em>          
+        </p>
+      </div>
+
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Servicios</h4>
+        <p>
+          <a (click)="navigate('haircut')" class="text-white bi bi-house" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Inicio</a>
+        </p>
+        <p>
+          <a (click)="navigate('products')"class="text-white bi bi-shop" style="text-decoration: none; cursor: pointer; font-size: 120%;"> Tienda</a>
+        </p>
+        <p>
+          <a (click)="navigate('profile')" class="text-white bi bi-person" style="text-decoration: none; cursor: pointer;font-size: 120%;"> Perfil</a>
+        </p>
+        <p>
+          <a (click)="navigate('aboutus')" class="text-white bi bi-info-circle" style="text-decoration: none; cursor: pointer;font-size: 120%;" > Nosotros</a>
+        </p>
+        <p>
+          <a *ngIf="user!=undefined" class="bi bi-power text-white" style="text-decoration: none;font-size: 120%;"(click)="logout()" href="haircut" > Cerrar sesión</a>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h4 class="text-uppercase mb-4 font-weight-bold ">Contactos</h4>
+        <p>
+          <a href="https://goo.gl/maps/NUMxpgNLWqhAaX3J8" class="text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-house"></i> Calle 33 # 19a-01 Palmira, Valle</a>
+        </p>
+        <p>
+          <a href="https://wa.me/573188621565?text=Hola%20quisiera%20agendar%20una%20cita!" class= "text-white" style="text-decoration: none;font-size: 120%;"><i class="bi bi-telephone-forward"></i> 318 8621565</a>
+        </p>
+        <p>
+        <a class="text-white" style="font-size: 120%; text-decoration: none;"><i class="bi bi-facebook"> </i> Proximamente!</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/la_calma_barbershop/" class= "text-white" style="text-decoration: none; font-size: 120%;"><i class="bi bi-instagram"></i> la_calma_barbershop</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</footer>

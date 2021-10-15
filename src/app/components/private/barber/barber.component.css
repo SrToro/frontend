@@ -1,0 +1,22 @@
+.content {
+    width: 100%;
+    padding: 50px 10% ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.barberContainer{
+    background-color: #1E9B9B;
+    width: 250px;
+    height: 340px;
+    border-radius: 10px;
+    margin: 20px;
+    align-items: center;
+}
+
+.barberContainer img{
+    width: 80%;
+    height: 60%;
+}

@@ -1,0 +1,48 @@
+<div [ngClass]= "{'appointmentDone':appointmentDone}" class="modal fade hidden" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="staticBackdropLabel">Listo! ¡Tienes una cita!</h5>
+      </div>
+      <div class="modal-body text-dark">
+        Recuerda llegar 5 minutos antes a tu cita!... <span class="spanm"> y que no se te olviden los elementos de bioseguridad!.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" data-bs-dismiss="modal" (click)="navigate('haircut')">Perfecto!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+<div class="bg-dark px-5 mt-4 text-center">
+  <i class="bi bi-calendar-date h1 bg-dark text-white"> Fecha de la cita. </i>
+</div>
+<br/>
+<div class="container bg-dark text-white">
+  <form [formGroup]="form">
+      <div class="form-group d-block">
+        <label for="exampleInputEmail1 "><h4> Seleccione el dia que desea separar <span class="span" data-toggle="tooltip" data-placement="left" title="obligatorio"> *</span></h4></label>
+        <input type="date"  min="{{minDate}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email" formControlName="date">
+        <small id="emailHelp" class="form-text text-muted "><h6> Recuerda: Selecciona un día especial para tí! </h6></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1"><h4> Hora <span class="span " data-toggle="tooltip" data-placement="left" title="obligatorio"> *</span></h4></label>
+        <select type="number" class="form-control" id="exampleInputPassword1" formControlName="hour">
+            <option value="8" default>8:00 AM</option>
+            <option value="9">9:00 AM</option>
+            <option value="10">10:00 AM</option>
+            <option value="11">11:00 AM</option>
+
+            <option value="14">2:00 PM</option>
+            <option value="15">3:00 PM</option>
+            <option value="16">4:00 PM</option>
+            <option value="17">5:00 PM</option>
+        </select>
+      </div>
+     <p class="text-danger" *ngIf="wrong"> ¡Completa los campos obligatorios! </p>
+      <br/>
+      <button type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-success" style="background: linear-gradient(180deg, #44ffa8 0%, #198754 100%); border-radius: 20px;" (click)="validateDate()">Separar cita ahora!</button>
+  </form>
+</div>
